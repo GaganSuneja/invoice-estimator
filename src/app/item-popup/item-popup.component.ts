@@ -8,7 +8,6 @@ import { ItemService } from '../item-service.service';
 @Component({
   selector: 'app-item-popup',
   templateUrl: './item-popup.component.html',
-  styleUrls: ['./item-popup.component.scss'],
   providers:[CurrenyCustomPipe]
 })
 export class ItemPopupComponent implements OnInit, OnDestroy {
