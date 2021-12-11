@@ -1,0 +1,67 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mt-10 {
+    margin-top:10px;
+}
+.mb-5{
+    margin-bottom: 5px;
+}
+.pd-10 {
+    padding: 10px;
+}
+
+.bg-yellow {
+    background-color: #fde832;
+}
+
+.box-shadow {
+    box-shadow: 5px 6px 15px 0px #00000029;
+}
+
+.card {
+    width: 100%;
+    display:inline-block;
+    box-shadow: 5px 6px 15px 0px #00000029;
+}
+.toolbar {
+    border: 1px solid transparent;
+    border-radius: 4px;
+    height: 40px;
+    font-size: 15px; 
+    @extend .bg-yellow;
+}
+
+.card-elem {
+    padding: 10px;
+}
+.full-width {
+    width: 100%
+}
+
+.card-container {
+    display:flex;padding:10px
+}
+
+.item-row {
+    display: flex;
+    padding: 10px;
+    flex-direction: row;
+    border: 1px solid #00000026;
+    border-radius: 4px;   
+    div:nth-child(3) {
+        text-align: right;
+        flex-grow: 2;
+    }
+    div:nth-child(2) {
+        text-align: left;
+        font-size: 10px;
+        padding: 5px;
+        flex-grow: 5;
+    }
+    div:nth-child(1) {
+       flex-grow: 1;
+    }
+}
