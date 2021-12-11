@@ -1,0 +1,95 @@
+#app-container {
+    padding-top: 10px;
+}
+.center-aligned {
+    display: flex;
+    justify-content: center;
+}
+
+.space-evenly {
+    justify-content: space-evenly !important;
+}
+
+.margin-default  { 
+    margin: 20px;
+}
+.title-container {
+    @extend .margin-default;
+    @extend .center-aligned;
+    mat-card {
+        border: 1px solid black;
+    }
+}
+
+.items-table {
+   margin: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    th, td {
+        border: 1px solid black;
+      }
+    td {
+        text-align: center;
+    }
+}
+
+
+
+.border-black {
+    border: 1px solid #0000008a;
+}
+.text-center {
+    text-align: center;
+}
+
+.mat-column-position {
+  padding-left: 5px !important;
+  width:6%;
+  @extend .text-center;
+  @extend .border-black;
+}
+
+.mat-column-item {
+    width: 17%;
+    @extend .text-center;
+  @extend .border-black;
+}
+
+.mat-column-itemWeight {
+    width: 13%;
+    @extend .text-center;
+  @extend .border-black;
+}
+
+.mat-column-noOfUnit {
+    width: 13%;
+    @extend .text-center;
+  @extend .border-black;
+}
+
+.mat-column-taxValue {
+    width: 15%;
+    @extend .text-center;
+  @extend .border-black;
+}
+
+.mat-column-itemValue {
+    padding-right: 5px !important;
+    width: 19%;
+    @extend .text-center;
+    @extend .border-black;
+}
+
+.mat-column-ratePerKg{
+    width: 19%;
+    @extend .text-center;
+    @extend .border-black;
+}
+
+.action-btns {
+    display: flex;
+    justify-content: space-around;
+}

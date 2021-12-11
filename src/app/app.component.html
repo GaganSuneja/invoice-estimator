@@ -1,0 +1,99 @@
+<mat-toolbar class="bg-yellow">
+  <span>Paper Estimator</span>
+</mat-toolbar>
+
+<div>
+  <form [formGroup]="partyForm">
+    <div class="card-container">
+      <div class="card">
+        <mat-toolbar class="toolbar">
+          <span>Client Details</span>
+        </mat-toolbar>
+        <div class="card-elem">
+          <mat-form-field class="full-width">
+            <mat-label>Party Name</mat-label>
+            <input name="partyName" matInput formControlName="partyName">
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-container">
+      <div class="card">
+        <mat-toolbar class="toolbar">
+          <span>Estimate Details</span>
+        </mat-toolbar>
+        <div class="card-elem">
+          <mat-form-field class="full-width">
+            <mat-label>Estimate #</mat-label>
+            <input name="estimate" matInput formControlName="estimateNo">
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Estimate date</mat-label>
+            <input matInput formControlName="estimateDate" [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <div class="card-container">
+    <div class="card">
+      <mat-toolbar class="toolbar">
+        <span>Item Details</span>
+      </mat-toolbar>
+      <div style="padding:10px">
+        <div *ngFor="let item of items" class="item-row">
+          <div style="flex-grow:1">
+            <button style="min-width: unset;" mat-raised-button color="warn"> - </button>
+          </div>
+          <div style="flex-grow:5">
+            {{item.description}}, {{item.length}}x{{item.breadth}}, {{item.gsm}} GSM, <br />
+            {{item.noOfUnit}} {{item.packagingUnit}} X {{item.itemWeight}} Kg @ Rs {{item.ratePerKg}}/kg
+          </div>
+          <div style="flex-grow:2">
+            {{item.itemValue | currencyPipe}}
+          </div>
+        </div>
+      </div>
+      <div class="card-elem">
+        <button mat-raised-button color="primary" (click)="addItem()">Add Item</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-container">
+    <div class="card">
+      <mat-toolbar class="toolbar">
+        <span>Cartage</span>
+      </mat-toolbar>
+      <div class="card-elem">
+        <mat-form-field class="full-width">
+          <mat-label>Cartage</mat-label>
+          <input name="cartage" matInput [formControl]="cartage">
+        </mat-form-field>
+        <div class="action-btns">
+          <button mat-raised-button color="primary" [disabled]="cartageAdded" (click)="addCartage()">Add
+            Cartage</button>
+          <button mat-raised-button color="warn" [disabled]="!cartageAdded" (click)="removeCartage()">Remove
+            Cartage</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="center-aligned space-evenly">
+  <button [disabled]="partyForm.invalid" mat-raised-button color="primary" (click)="downloadPdf()">
+    <mat-icon aria-hidden="false" aria-label="Example home icon">download</mat-icon> Download
+  </button>
+</div>
+<div class="card-container">
+  <div class="card">
+    <div class="card-elem">
+      <mat-icon (click="openFormulaWidget()" aria-hidden="false" aria-label="Info icon">info</mat-icon> Formula
+    </div>
+  </div>
+</div>

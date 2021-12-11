@@ -1,0 +1,76 @@
+<h2 mat-dialog-title>Add Item</h2>
+<mat-dialog-content>
+    <form [formGroup]="itemForm">
+        <div style="display:flex;flex-direction:column">
+            <mat-form-field appearance="fill">
+                <mat-label>Select Item</mat-label>
+                <mat-select formControlName="item">
+                    <mat-option *ngFor="let item of items" [value]="item.name">
+                        {{item.displayName }} ( {{item.hsn}} )
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Description</mat-label>
+                <input name="description" matInput placeholder="Enter Mill Name/Product"formControlName="description">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Length</mat-label>
+                <input name="length" matInput formControlName="length">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Breadth</mat-label>
+                <input name="breadth" matInput formControlName="breadth">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>GSM</mat-label>
+                <input name="gsm" matInput formControlName="gsm">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>No Of Sheets</mat-label>
+                <mat-select formControlName="noOfSheet">
+                    <mat-option *ngFor="let item of noOfSheetsList" [value]="item">
+                        {{item}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Rate per Kg</mat-label>
+                <input name="ratePerKg" matInput formControlName="ratePerKg">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>No of Packet/Reams</mat-label>
+                <input name="noOfUnit" matInput formControlName="noOfUnit">
+            </mat-form-field>
+        </div>
+        <div class="card-container" style="padding: 0px">
+            <div class="card pd-10">
+                <div class="item-row mb-5">
+                    <div>1</div>
+                    <div style="font-size: unset;padding:0px">Weight/{{unitSelected}}</div>
+                    <div>{{itemWeight}} kg</div>
+                </div>
+                <div class="item-row mb-5">
+                    <div>2</div>
+                    <div style="font-size: unset;padding:0px">Item Value:</div>
+                    <div> {{itemValue | currencyPipe }}</div>
+                </div>
+                <div class="item-row mb-5">
+                    <div>3</div>
+                    <div style="font-size: unset;padding:0px"> GST @ {{gstSlab}}%: </div>
+                    <div> {{taxValue | currencyPipe }}</div>
+                </div>
+                <div class="item-row mb-5">
+                    <div>4</div>
+                    <div style="font-size: unset;padding:0px">Total Value: </div>
+                    <div> {{totalItemValue | currencyPipe }}</div>
+                </div>
+            </div>
+        </div>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button color="primary" [disabled]="itemForm.invalid" (click)="addItem()"  mat-raised-button [mat-dialog-close]="true" cdkFocusInitial>Add</button>
+</mat-dialog-actions>
