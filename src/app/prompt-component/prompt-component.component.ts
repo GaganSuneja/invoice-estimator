@@ -2,8 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_BOTTOM_SHEET_DATA, MatBottomSheetRef } from '@angular/material/bottom-sheet';
 @Component({
   selector: 'app-prompt-component',
-  templateUrl: './prompt-component.component.html',
-  styleUrls: ['./prompt-component.component.scss']
+  templateUrl: './prompt-component.component.html'
 })
 export class PromptComponent {
 
